@@ -1,13 +1,24 @@
 import FeedWrapper from "@/components/feed-wrapper";
 import StickyWrapper from "@/components/sticky-wrapper";
+import { Header } from "./header";
+import { UserProgress } from "@/components/user-progress";
 
 type Props = {};
 
 const LearnPage = (props: Props) => {
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6 border-2">
-      <StickyWrapper>my sticky sidebar</StickyWrapper>
-      <FeedWrapper>feed here</FeedWrapper>
+    <div className="flex flex-row-reverse gap-[48px] px-6">
+      <StickyWrapper>
+        <UserProgress
+          activeCourse={{ title: "spanish", imageSrc: "/es.svg" }}
+          hearts={5}
+          points={100}
+          hasActiveSubscription={false}
+        />
+      </StickyWrapper>
+      <FeedWrapper>
+        <Header title="spanish" />
+      </FeedWrapper>
     </div>
   );
 };
