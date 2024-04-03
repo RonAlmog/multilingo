@@ -10,8 +10,9 @@
     "db:studio": "npx drizzle-kit studio",
     "db:push": "npx drizzle-kit push:pg",
     "db:migration:generate": "drizzle-kit generate:pg --schema ./db/schema.ts --out ./drizzle",
-    "db:xx": "db/migrate.ts",
-    "db:seed": "npx tsx db/seed.ts"
+    "db:migration:pushxx": "tsx db/migrate.ts",
+    "db:migration:push": "node -r esbuild-register db/migrate.ts",
+    "db:seed": "node -r esbuild-register db/seed.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",

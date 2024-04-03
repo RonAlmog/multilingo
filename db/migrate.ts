@@ -9,7 +9,9 @@ const db = drizzle(sql);
 async function main() {
   try {
     console.log("migration started");
-    await migrate(db, { migrationsFolder: "./migrations" });
+    await migrate(db, { migrationsFolder: "drizzle" });
+    console.log("migration ended");
+    process.exit(0);
   } catch (error) {
     console.error("Error during migration:", error);
     process.exit(1);
