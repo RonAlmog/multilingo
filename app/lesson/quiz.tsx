@@ -22,11 +22,15 @@ const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: Props) => {
-  const [hearts, setHearts] = useState(50 || initialHearts);
-  const [percentage, setPercentage] = useState(50 || initialPercentage);
+  const [hearts, setHearts] = useState(initialHearts);
+  const [percentage, setPercentage] = useState(initialPercentage);
   return (
     <>
-      <QuizHeader hearts={hearts} percentage={percentage} />
+      <QuizHeader
+        hearts={hearts}
+        percentage={percentage}
+        hasActiveSubscription={!!userSubscription?.isActive}
+      />
     </>
   );
 };
