@@ -5,6 +5,7 @@ import { useState } from "react";
 import QuizHeader from "./quiz-header";
 import QuestionBubble from "./question-bubble";
 import Challenge from "./challenge";
+import QuizFooter from "./quiz-footer";
 
 type Props = {
   initialPercentage: number;
@@ -75,6 +76,11 @@ const Quiz = ({
           </div>
         </div>
       </div>
+      <QuizFooter
+        disabled={!selectedOption}
+        status={status}
+        onCheck={() => {}}
+      />
     </>
   );
 };
