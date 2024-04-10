@@ -32,10 +32,9 @@ const ChallengeCard = ({
   const [audio, _, controls] = useAudio({ src: `/sounds${audioSrc}` || "" });
   const handleClick = useCallback(() => {
     if (disabled) return;
-    console.log("hello", audio.props);
     controls.play();
     onClick();
-  }, [disabled, onClick, controls, audio]);
+  }, [disabled, onClick, controls]);
 
   useKey(shortcut, handleClick, {}, [handleClick]);
   return (
