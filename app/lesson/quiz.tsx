@@ -1,11 +1,13 @@
 "use client";
 
 import { challengeOptions, challenges } from "@/db/schema";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import QuizHeader from "./quiz-header";
 import QuestionBubble from "./question-bubble";
 import Challenge from "./challenge";
 import QuizFooter from "./quiz-footer";
+import { upsertChallengeProgress } from "@/actions/challenge-progress";
+import { toast } from "sonner";
 
 type Props = {
   initialPercentage: number;
@@ -25,6 +27,8 @@ const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: Props) => {
+  const [isPending, startTransition] = useTransition();
+
   const [hearts, setHearts] = useState(initialHearts);
   const [percentage, setPercentage] = useState(initialPercentage);
   const [challenges] = useState(initialLessonChallenges);
@@ -62,8 +66,27 @@ const Quiz = ({
     }
     // if none of the above
     const correctOption = options.find((option) => option.correct);
+    if (!correctOption) return;
+
     if (correctOption && correctOption.id === selectedOption) {
-      console.log("correct!");
+      startTransition(() => {
+        upsertChallengeProgress(challenge.id)
+          .then((response) => {
+            if (response?.error === "hearts") {
+              console.log("missing hearts");
+              return;
+            }
+
+            setStatus("correct");
+            setPercentage((prev) => prev + 100 / challenges.length);
+
+            if (initialPercentage === 100) {
+              // this is a practice
+              setHearts((prev) => Math.min(prev + 1, 5));
+            }
+          })
+          .catch(() => toast.error("Something went wrong, please try again"));
+      });
     } else {
       console.log("nooo");
     }
