@@ -27,7 +27,7 @@ const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: Props) => {
-  const [isPending, startTransition] = useTransition();
+  const [pending, startTransition] = useTransition();
 
   const [hearts, setHearts] = useState(initialHearts);
   const [percentage, setPercentage] = useState(initialPercentage);
@@ -119,7 +119,7 @@ const Quiz = ({
                 onSelect={onSelect}
                 status={status}
                 selectedOption={selectedOption}
-                disabled={false}
+                disabled={pending}
                 type={challenge.type}
               />
             </div>
@@ -127,7 +127,7 @@ const Quiz = ({
         </div>
       </div>
       <QuizFooter
-        disabled={!selectedOption}
+        disabled={pending || !selectedOption}
         status={status}
         onCheck={onContinue}
       />
