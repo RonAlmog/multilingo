@@ -8,6 +8,7 @@ import Challenge from "./challenge";
 import QuizFooter from "./quiz-footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
+import { reduceHearts } from "@/actions/user-progress";
 
 type Props = {
   initialPercentage: number;
@@ -89,6 +90,20 @@ const Quiz = ({
       });
     } else {
       console.log("nooo");
+      startTransition(() => {
+        reduceHearts(challenge.id)
+          .then((response) => {
+            if (response?.error === "hearts") {
+              console.log("Missing hearts");
+              return;
+            }
+            setStatus("wrong");
+            if (!response?.error) {
+              setHearts((prev) => Math.max(prev - 1, 0));
+            }
+          })
+          .catch(() => toast.error("Something went wrong. Please try again."));
+      });
     }
   };
 
