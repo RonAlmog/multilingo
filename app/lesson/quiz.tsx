@@ -9,6 +9,7 @@ import QuizFooter from "./quiz-footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
 import { reduceHearts } from "@/actions/user-progress";
+import { useAudio } from "react-use";
 
 type Props = {
   initialPercentage: number;
@@ -28,6 +29,10 @@ const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: Props) => {
+  const [correctAudio, _c, correctContols] = useAudio({ src: "/correct.wav" });
+  const [incorrectAudio, _i, incorrectContols] = useAudio({
+    src: "/incorrect.wav",
+  });
   const [pending, startTransition] = useTransition();
 
   const [hearts, setHearts] = useState(initialHearts);
@@ -78,6 +83,7 @@ const Quiz = ({
               return;
             }
 
+            correctContols.play();
             setStatus("correct");
             setPercentage((prev) => prev + 100 / challenges.length);
 
@@ -89,7 +95,6 @@ const Quiz = ({
           .catch(() => toast.error("Something went wrong, please try again"));
       });
     } else {
-      console.log("nooo");
       startTransition(() => {
         reduceHearts(challenge.id)
           .then((response) => {
@@ -97,6 +102,7 @@ const Quiz = ({
               console.log("Missing hearts");
               return;
             }
+            incorrectContols.play();
             setStatus("wrong");
             if (!response?.error) {
               setHearts((prev) => Math.max(prev - 1, 0));
@@ -114,6 +120,8 @@ const Quiz = ({
 
   return (
     <>
+      {correctAudio}
+      {incorrectAudio}
       <QuizHeader
         hearts={hearts}
         percentage={percentage}
