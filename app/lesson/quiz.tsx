@@ -46,7 +46,7 @@ const Quiz = ({
   const [selectedOption, setSelectedOption] = useState<number>();
   const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
   const challenge = challenges[activeIndex];
-  const options = challenge.challengeOptions ?? [];
+  const options = challenge?.challengeOptions ?? [];
 
   const onNext = () => {
     SetActiveIndex((current) => current + 1);
@@ -113,6 +113,9 @@ const Quiz = ({
     }
   };
 
+  if (!challenge) {
+    return <div>Finished the challenge</div>;
+  }
   const title =
     challenge.type === "ASSIST"
       ? "Select the correct meaning"
