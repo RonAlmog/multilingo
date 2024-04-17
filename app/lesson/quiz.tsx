@@ -9,13 +9,14 @@ import QuizFooter from "./quiz-footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
 import { reduceHearts } from "@/actions/user-progress";
-import { useAudio, useWindowSize } from "react-use";
+import { useAudio, useWindowSize, useMount } from "react-use";
 import Image from "next/image";
 import ResultCard from "./result-card";
 import { Footer } from "../(marketing)/footer";
 import { useRouter } from "next/navigation";
 import Confetti from "react-confetti";
 import { useHeartsModal } from "@/store/use-hearts-modal";
+import { usePracticeModal } from "@/store/use-practice-modal";
 
 type Props = {
   initialPercentage: number;
@@ -36,6 +37,13 @@ const Quiz = ({
   userSubscription,
 }: Props) => {
   const { open: openHeartsModal } = useHeartsModal();
+  const { open: openPracticeModal } = usePracticeModal();
+  // similar to useEffect, but easier
+  useMount(() => {
+    if (initialPercentage === 100) {
+      openPracticeModal();
+    }
+  });
   const { width, height } = useWindowSize();
   const router = useRouter();
   const [finishAudio] = useAudio({
