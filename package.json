@@ -12,8 +12,8 @@
     "db:migration:generate": "drizzle-kit generate:pg --schema ./db/schema.ts --out ./drizzle",
     "db:migration:pushxx": "tsx db/migrate.ts",
     "db:migration:push": "node -r esbuild-register db/migrate.ts",
-    "db:seed2": "node -r esbuild-register db/seed.ts",
-    "db:seed": "tsx ./scripts/seed.ts"
+    "db:seed": "tsx ./scripts/seed.ts",
+    "db:prod": "tsx ./scripts/prod.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
