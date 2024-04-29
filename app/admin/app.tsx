@@ -58,7 +58,7 @@ const App = () => {
         list={ChallengeOptionList}
         create={ChallengeOptionCreate}
         edit={ChallengeOptionEdit}
-        options={{ label: "Challenge Options" }}
+        options={{ label: "Challenge Options" }} // name on the menu
       />
     </Admin>
   );

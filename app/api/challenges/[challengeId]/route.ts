@@ -11,7 +11,6 @@ export const GET = async (
   if (!isAdmin()) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
-  console.log("challengeId", params.challengeId);
   const data = await db.query.challenges.findFirst({
     where: eq(challenges.id, params.challengeId),
   });

@@ -3,13 +3,18 @@ import {
   Datagrid,
   List,
   NumberField,
+  Pagination,
   ReferenceField,
   TextField,
 } from "react-admin";
 
+const ChallengeOptionsPagination = () => (
+  <Pagination rowsPerPageOptions={[10, 25, 50, 100]} />
+);
+
 export const ChallengeOptionList = () => {
   return (
-    <List>
+    <List title="Challenge Options" pagination={<ChallengeOptionsPagination />}>
       <Datagrid rowClick="edit">
         <NumberField source="id" />
         <TextField source="text" />
