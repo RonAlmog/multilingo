@@ -35,7 +35,7 @@ const meta: Meta<StoryProps> = {
       ],
     },
     size: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: ["default", "sm", "lg", "icon", "rounded"],
     },
   },
