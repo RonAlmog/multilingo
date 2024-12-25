@@ -8,7 +8,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 
 export const Header = () => {
   return (

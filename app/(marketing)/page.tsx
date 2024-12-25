@@ -8,7 +8,7 @@ import {
   SignedIn,
   SignedOut,
 } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import Link from "next/link";
 
 export default function Home() {

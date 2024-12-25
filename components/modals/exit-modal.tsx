@@ -10,7 +10,7 @@ import {
 } from "../ui/dialog";
 import { useExitModal } from "@/store/use-exit-modal";
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
+import { Button } from "../ui/button/button";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
