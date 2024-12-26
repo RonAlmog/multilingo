@@ -2,7 +2,7 @@ import FeedWrapper from "@/components/feed-wrapper";
 import Promo from "@/components/promo";
 import Quests from "@/components/quests";
 import StickyWrapper from "@/components/sticky-wrapper";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar/avatar";
 import { Separator } from "@/components/ui/separator";
 import { UserProgress } from "@/components/user-progress";
 import {
