@@ -1,14 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "./badge";
+import { ComponentProps } from "react";
 
-const meta = {
+type StoryProps = ComponentProps<typeof Badge> & { badgeText: string };
+
+const meta: Meta<StoryProps> = {
   title: "UI/Badge",
   component: Badge,
   parameters: {
     layout: "centered",
   },
 
-  args: { variant: "default", children: "children" },
+  tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: ["default", "secondary", "destructive", "outline"],
+    },
+  },
+  args: { variant: "default", children: "Badge" },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
