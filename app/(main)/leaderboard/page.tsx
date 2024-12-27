@@ -4,7 +4,7 @@ import Quests from "@/components/quests";
 import StickyWrapper from "@/components/sticky-wrapper";
 import { Avatar, AvatarImage } from "@/components/ui/avatar/avatar";
 import { Separator } from "@/components/ui/separator";
-import { UserProgress } from "@/components/user-progress";
+import { UserProgress } from "@/components/user-progress/user-progress";
 import {
   getTopTenUsers,
   getUserProgress,
