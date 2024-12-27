@@ -1,5 +1,5 @@
 import FeedWrapper from "@/components/feed-wrapper";
-import Promo from "@/components/promo";
+import Promo from "@/components/promo/promo";
 import StickyWrapper from "@/components/sticky-wrapper";
 import { Progress } from "@/components/ui/progress";
 

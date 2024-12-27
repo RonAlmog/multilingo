@@ -1,6 +1,6 @@
 import FeedWrapper from "@/components/feed-wrapper";
-import Promo from "@/components/promo";
-import Quests from "@/components/quests";
+import Promo from "@/components/promo/promo";
+import Quests from "@/components/quests/quests";
 import StickyWrapper from "@/components/sticky-wrapper";
 import { Avatar, AvatarImage } from "@/components/ui/avatar/avatar";
 import { Separator } from "@/components/ui/separator";

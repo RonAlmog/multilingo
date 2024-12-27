@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserProgress } from "./user-progress";
+import Quests from "./quests";
 import { ComponentProps } from "react";
+import StickyWrapper from "../sticky-wrapper";
 
-type StoryProps = ComponentProps<typeof UserProgress>;
+type StoryProps = ComponentProps<typeof Quests>;
 const meta: Meta<StoryProps> = {
-  title: "UI/UserProgress",
-  component: UserProgress,
+  title: "Components/Quests",
+  component: Quests,
   parameters: {
     layout: "centered",
   },
@@ -13,25 +14,24 @@ const meta: Meta<StoryProps> = {
   tags: ["autodocs"],
 
   argTypes: {
-    hearts: {
-      control: { type: "number" },
-    },
     points: {
       control: { type: "number" },
     },
-    hasActiveSubscription: {
-      control: { type: "boolean" },
-    },
   },
-} satisfies Meta<typeof UserProgress>;
+} satisfies Meta<typeof Quests>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    hearts: 5,
     points: 100,
-    hasActiveSubscription: true,
+  },
+  render: ({ ...args }) => {
+    return (
+      <StickyWrapper>
+        <Quests {...args} />
+      </StickyWrapper>
+    );
   },
 };

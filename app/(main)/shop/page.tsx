@@ -5,8 +5,8 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import Items from "./items";
-import Promo from "@/components/promo";
-import Quests from "@/components/quests";
+import Promo from "@/components/promo/promo";
+import Quests from "@/components/quests/quests";
 
 const ShopPage = async () => {
   const userProgressData = getUserProgress();

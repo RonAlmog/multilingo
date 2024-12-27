@@ -48,7 +48,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { buttonText: "Click Me Now", variant: "primary", size: "lg" },
+  args: {
+    buttonText: "Click Me Now",
+    variant: "primary",
+    size: "lg",
+    disabled: false,
+    onClick: fn(),
+  },
   render: ({ buttonText, ...args }) => {
     return <Button {...args}>{buttonText}</Button>;
   },
