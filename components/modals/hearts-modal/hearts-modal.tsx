@@ -7,9 +7,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button/button";
+import { Button } from "../../ui/button/button";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useHeartsModal } from "@/store/use-hearts-modal";

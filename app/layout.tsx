@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import ExitModal from "@/components/modals/exit-modal/exit-modal";
-import HeartsModal from "@/components/modals/hearts-modal";
+import HeartsModal from "@/components/modals/hearts-modal/hearts-modal";
 import PracticeModal from "@/components/modals/practice-modal";
 
 const font = Nunito({ subsets: ["latin"] });
