@@ -4,9 +4,7 @@ import Image from "next/image";
 import { Button } from "../ui/button/button";
 import Link from "next/link";
 
-type Props = {};
-
-const Promo = (props: Props) => {
+const Promo = () => {
   return (
     <div className="border-2 rounded-xl p-4 space-y-4">
       <div className="space-y-2">
