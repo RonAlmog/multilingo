@@ -22,6 +22,17 @@ const meta: Meta<StoryProps> = {
     hasActiveSubscription: {
       control: { type: "boolean" },
     },
+    activeCourse: {
+      id: {
+        control: { type: "number" },
+      },
+      title: {
+        control: { type: "string" },
+      },
+      imageSrc: {
+        control: { type: "string" },
+      },
+    },
   },
 } satisfies Meta<typeof UserProgress>;
 
@@ -33,5 +44,10 @@ export const Default: Story = {
     hearts: 5,
     points: 100,
     hasActiveSubscription: true,
+    activeCourse: {
+      id: 8,
+      title: "Italian for beginners",
+      imageSrc: "/it.svg",
+    },
   },
 };
