@@ -7,8 +7,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
-import { Button } from "../ui/button/button";
+} from "../../ui/dialog";
+import { Button } from "../../ui/button/button";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePracticeModal } from "@/store/use-practice-modal";
