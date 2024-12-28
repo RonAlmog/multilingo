@@ -4,7 +4,7 @@ import { ComponentProps } from "react";
 
 type StoryProps = ComponentProps<typeof UserProgress>;
 const meta: Meta<StoryProps> = {
-  title: "UI/UserProgress",
+  title: "Components/UserProgress",
   component: UserProgress,
   parameters: {
     layout: "centered",

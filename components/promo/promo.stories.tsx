@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Promo from "./promo";
 import { ComponentProps } from "react";
-import { fn } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof Promo> & { buttonText: string };
 const meta: Meta<StoryProps> = {

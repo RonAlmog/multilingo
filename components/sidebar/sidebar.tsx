@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { SidebarItem } from "./sidebar-item";
+import { SidebarItem } from "../sidebar-item";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 
@@ -13,7 +13,7 @@ export const Sidebar = ({ className }: Props) => {
   return (
     <div
       className={cn(
-        "flex flex-col h-full  lg:w-[256px] lg:fixed left-0 top-0 px-4 border-r-2",
+        "flex flex-col h-full lg:w-[256px] lg:fixed left-0 top-0 px-4 border-r-2",
         className
       )}
     >

@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "./sidebar/sidebar";
 import { Menu } from "lucide-react";
 
 type Props = {};
